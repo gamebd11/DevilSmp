@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devil SMP</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="devil_smp.webp" type="image/x-icon">
+    <style>
+        body {
+            background: linear-gradient(135deg, #d10000, #00008b);
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .navbar {
+            background-color: rgba(34, 34, 34, 0.8);
+        }
+
+        .navbar a {
+            color: white;
+        }
+
+        .navbar a:hover {
+            color: #10B981;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+            }
+
+            .navbar .mobile-menu {
+                display: block;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            #hero {
+                padding: 4rem;
+                text-align: center;
+            }
+        }
+
+        .section-padding {
+            padding: 4rem 0;
+        }
+    </style>
+</head>
+
+<body class="font-sans">
+
+    <!-- Navbar -->
+    <header class="navbar fixed top-0 w-full text-white py-4 shadow-lg z-50">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <h1 class="text-3xl font-bold">Devil SMP</h1>
+            <nav class="hidden md:flex space-x-6">
+                <ul class="flex space-x-6">
+                    <li><a href="#hero" class="hover:text-green-500 transition">Home</a></li>
+                    <li><a href="#events" class="hover:text-green-500 transition">Events</a></li>
+                    <li><a href="#about" class="hover:text-green-500 transition">About</a></li>
+                    <li><a href="#contact" class="hover:text-green-500 transition">Contact</a></li>
+                    <li><a href="#server-ip" class="hover:text-green-500 transition">Server IP</a></li>
+                </ul>
+            </nav>
+            <!-- Mobile Menu Icon -->
+            <div class="md:hidden mobile-menu">
+                <button class="text-2xl" onclick="toggleMenu()">&#9776;</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden bg-gray-800 text-white p-4 space-y-4 hidden">
+        <ul class="space-y-4">
+            <li><a href="#hero" class="block hover:text-green-500 transition">Home</a></li>
+            <li><a href="#about" class="block hover:text-green-500 transition">About</a></li>
+            <li><a href="#events" class="block hover:text-green-500 transition">Events</a></li>
+            <li><a href="#contact" class="block hover:text-green-500 transition">Contact</a></li>
+            <li><a href="#server-ip" class="block hover:text-green-500 transition">Server IP</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="bg-cover bg-center h-screen flex items-center justify-center relative" style="background-image: url('https://via.placeholder.com/1920x1080');">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="text-center text-white z-10 px-4">
+            <h2 class="text-5xl font-bold fade-in">Welcome to Devil SMP</h2>
+            <p class="mt-4 text-lg fade-in" style="animation-delay: 0.5s;">The ultimate Minecraft experience!</p>
+            <a href="#events" class="mt-6 inline-block bg-green-600 text-white px-6 py-2 rounded-lg shadow hover:bg-green-500 fade-in" style="animation-delay: 1s;">Check Events</a>
+        </div>
+    </section>
+
+    <!-- Server IP Section -->
+    <section id="server-ip" class="section-padding bg-gray-100">
+        <div class="container mx-auto text-center px-4">
+            <h3 class="text-3xl font-bold mb-6">Server IP</h3>
+            <div class="bg-gray-50 shadow rounded-lg p-6">
+                <h4 class="text-2xl font-semibold mb-4">Join Us on Devil SMP</h4>
+                <p class="text-xl text-gray-600 mb-4" id="server-ip-text" style="border: 2px solid #ccc; padding: 15px; border-radius: 10px; background-color: #fafafa;">
+                    devillight.falixsrv.me
+                </p>
+                <button onclick="copyToClipboard()" class="bg-blue-600 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-500 transition duration-300">Copy IP</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="section-padding bg-white">
+        <div class="container mx-auto text-center px-4">
+            <h3 class="text-3xl font-bold mb-6">Upcoming Events</h3>
+
+            <!-- Giveaway Event -->
+            <div class="p-6 bg-gray-50 shadow rounded-lg mb-8">
+                <h4 class="text-2xl font-bold mb-2">Giveaway Event</h4>
+                <p class="text-gray-600 mb-4">Join our giveaway and win amazing rewards! Ends soon!</p>
+                <p id="current-time" class="text-gray-600 mb-4 font-semibold">Current Time: </p>
+                <a href="#" class="bg-green-600 text-white px-6 py-2 rounded-lg shadow hover:bg-green-500">Participate Now</a>
+            </div>
+
+            <!-- Resource Pack -->
+            <div class="mt-8">
+                <h4 class="text-2xl font-bold mb-4">Resource Pack</h4>
+                <p class="text-gray-600 mb-4">Download our custom Devil SMP resource pack to enhance your gameplay experience!</p>
+                <a href="Devil Ultimate 12K Pack.zip" download class="bg-blue-600 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-500">Download Resource Pack</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding bg-gray-100">
+        <div class="container mx-auto text-center px-4">
+            <h3 class="text-3xl font-bold mb-6">About Devil SMP</h3>
+            <p class="text-gray-600">Devil SMP is a Minecraft server where creativity and competition come alive. Join us for a unique survival experience!</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-white">
+        <div class="container mx-auto text-center px-4">
+            <h3 class="text-3xl font-bold mb-6">Contact Us</h3>
+            <form class="max-w-lg mx-auto">
+                <div class="mb-4">
+                    <input type="text" placeholder="Your Name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                </div>
+                <div class="mb-4">
+                    <input type="email" placeholder="Your Email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                </div>
+                <div class="mb-4">
+                    <textarea placeholder="Your Message" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                </div>
+                <button type="submit" class="bg-green-600 text-white px-6 py-2 rounded-lg shadow hover:bg-green-500">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-700 text-white py-4">
+        <div class="container mx-auto text-center px-4">
+            <p>&copy; 2025 Devil SMP. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile menu visibility
+        function toggleMenu() {
+            const menu = document.getElementById("mobile-menu");
+            menu.classList.toggle("hidden");
+        }
+
+        // Clock functionality to display current time
+        function updateClock() {
+            const now = new Date();
+            const options = { timeZone: 'Asia/Dhaka', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            const timeString = now.toLocaleTimeString('en-US', options);
+            document.getElementById('current-time').textContent = `Current Time: ${timeString}`;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        function copyToClipboard() {
+            const ip = document.querySelector('#server-ip-text');
+            const textArea = document.createElement('textarea');
+            textArea.value = ip.textContent.trim();
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            alert('Server IP copied to clipboard!');
+        }
+    </script>
+</body>
+
+</html>
